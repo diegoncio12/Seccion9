@@ -81,22 +81,33 @@ nav ul li a { color: white; text-decoration: none; font-size: 0.9rem; }
     .hero-actions { justify-content: center; }
     .hero p { margin: 0 auto 25px; }
 }
-/* Estilos para el botón PDF centralizado */
-.btn-pdf-central {
-    display: inline-block; /* Permite centrarlo y darle tamaño */
-    padding: 15px 30px; /* Tamaño del botón */
-    background-color: var(--azul-s9); /* Usa tu variable de color azul */
-    color: white; /* Texto blanco */
-    text-decoration: none; /* Quita el subrayado */
-    font-weight: bold; /* Texto en negrita */
-    border-radius: 5px; /* Bordes redondeados como los otros */
-    font-size: 1rem; /* Tamaño de fuente estándar */
-    margin-bottom: 25px; /* Espacio antes de los otros botones */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Efecto suave */
+
+/* Contenedor para forzar el centrado del botón */
+.contenedor-boton-pdf {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0 30px 0; /* Espacio arriba y abajo */
 }
 
-/* Efecto al pasar el ratón por encima (hover) */
+/* El botón con estilo profesional */
+.btn-pdf-central {
+    background-color: #34a8e0; /* Tu azul corporativo */
+    color: white;
+    padding: 14px 28px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s all ease;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 4px 15px rgba(52, 168, 224, 0.3);
+}
+
 .btn-pdf-central:hover {
-    background-color: #298cb3; /* Un azul un poco más oscuro al pasar el ratón */
-    box-shadow: 0 5px 15px rgba(52, 168, 224, 0.4); /* Sombra azulita */
+    background-color: #298cb3;
+    transform: translateY(-2px); /* Pequeño salto al pasar el ratón */
+    box-shadow: 0 6px 20px rgba(52, 168, 224, 0.5);
 }
