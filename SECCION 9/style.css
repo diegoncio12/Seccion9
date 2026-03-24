@@ -81,3 +81,22 @@ nav ul li a { color: white; text-decoration: none; font-size: 0.9rem; }
     .hero-actions { justify-content: center; }
     .hero p { margin: 0 auto 25px; }
 }
+/* Estilos para el botón PDF centralizado */
+.btn-pdf-central {
+    display: inline-block; /* Permite centrarlo y darle tamaño */
+    padding: 15px 30px; /* Tamaño del botón */
+    background-color: var(--azul-s9); /* Usa tu variable de color azul */
+    color: white; /* Texto blanco */
+    text-decoration: none; /* Quita el subrayado */
+    font-weight: bold; /* Texto en negrita */
+    border-radius: 5px; /* Bordes redondeados como los otros */
+    font-size: 1rem; /* Tamaño de fuente estándar */
+    margin-bottom: 25px; /* Espacio antes de los otros botones */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Efecto suave */
+}
+
+/* Efecto al pasar el ratón por encima (hover) */
+.btn-pdf-central:hover {
+    background-color: #298cb3; /* Un azul un poco más oscuro al pasar el ratón */
+    box-shadow: 0 5px 15px rgba(52, 168, 224, 0.4); /* Sombra azulita */
+}
