@@ -1,100 +1,98 @@
+/* --- VARIABLES Y CONFIGURACIÓN BASE --- */
 :root {
     --azul-s9: #34a8e0;
     --fondo: #0a0a0a;
     --gris: #141414;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-body { background: var(--fondo); color: white; line-height: 1.6; overflow-x: hidden; }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
 
-/* Navegación Responsiva */
+body { 
+    background: var(--fondo); 
+    color: white; 
+    line-height: 1.6; 
+    overflow-x: hidden; 
+}
+
+/* --- NAVEGACIÓN --- */
 nav {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 5%; background: rgba(10,10,10,0.95);
-    position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #222;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px 5%; 
+    background: rgba(10, 10, 10, 0.95);
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+    border-bottom: 1px solid #222;
 }
-nav ul { display: flex; list-style: none; gap: 15px; }
-nav ul li a { color: white; text-decoration: none; font-size: 0.9rem; }
 
-/* Hero con Video */
-/* Centrar el contenido del hero */
+.logo { font-weight: bold; font-size: 1.5rem; letter-spacing: 1px; }
+.logo span { color: var(--azul-s9); }
+
+nav ul { display: flex; list-style: none; gap: 20px; }
+nav ul li a { color: white; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+nav ul li a:hover { color: var(--azul-s9); }
+
+/* --- HERO CON VIDEO (EL CORAZÓN DE LA WEB) --- */
 .hero {
-    /* ... (tus estilos existentes) */
+    position: relative;
+    height: 100vh; /* Ocupa toda la pantalla */
+    width: 100%;
     display: flex;
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-    text-align: center; /* Centrar el texto */
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
-/* Estilo para el nuevo botón de PDF en el hero */
-.btn-pdf-hero {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: var(--azul-s9);
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    margin-bottom: 30px; /* Espacio antes de los botones de acción */
-    transition: 0.3s;
+.video-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta el video sin deformarlo */
+    z-index: 1;
 }
 
-.btn-pdf-hero:hover {
-    background-color: #298cb3;
-    box-shadow: 0 0 20px rgba(52, 168, 224, 0.3);
-}
-/* Botones */
-.btn-primary, .btn-secondary, .btn-doc {
-    padding: 12px 25px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block;
-}
-.btn-primary { background: var(--azul-s9); color: white; }
-.btn-secondary { border: 1px solid white; color: white; }
-
-/* Grid de Servicios */
-.container { padding: 60px 5%; }
-.grid-servicios {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;
-}
-.tarjeta { background: var(--gris); padding: 30px; border-radius: 8px; border: 1px solid #222; }
-
-/* Secciones Centradas */
-.doc-section { background: #050505; text-align: center; padding: 60px 5%; }
-.descargas-flex { 
-    display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 30px; 
-}
-.btn-doc { border: 1px solid var(--azul-s9); color: var(--azul-s9); }
-
-/* Formulario */
-.flex-contacto { display: flex; flex-wrap: wrap; gap: 40px; }
-.info-texto, .form-s9 { flex: 1; min-width: 300px; }
-.form-s9 input, .form-s9 textarea {
-    width: 100%; padding: 12px; margin-bottom: 15px; background: #1a1a1a; border: 1px solid #333; color: white;
-}
-.form-s9 button { width: 100%; padding: 15px; background: var(--azul-s9); border: none; color: white; font-weight: bold; cursor: pointer; }
-
-/* MEDIA QUERIES (Móvil) */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2.2rem; }
-    nav ul { display: none; } /* En móvil real se pondría un menú hamburguesa, pero para el proyecto ocultarlo o simplificarlo es más seguro */
-    .hero { height: 60vh; text-align: center; justify-content: center; }
-    .hero-actions { justify-content: center; }
-    .hero p { margin: 0 auto 25px; }
+/* Capa oscura para que el texto se lea mejor sobre el video */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: 2;
 }
 
-/* Contenedor para forzar el centrado del botón */
+.hero-content {
+    position: relative;
+    z-index: 3; /* Por encima del video y de la capa oscura */
+    text-align: center;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.tagline { color: var(--azul-s9); text-transform: uppercase; font-weight: bold; letter-spacing: 2px; }
+.hero h1 { font-size: 3rem; margin: 15px 0; line-height: 1.2; }
+.hero p { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; }
+
+/* --- BOTÓN PDF CENTRAL --- */
 .contenedor-boton-pdf {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin: 20px 0 30px 0; /* Espacio arriba y abajo */
+    margin: 20px 0 40px 0;
 }
 
-/* El botón con estilo profesional */
 .btn-pdf-central {
-    background-color: #34a8e0; /* Tu azul corporativo */
+    background-color: var(--azul-s9);
     color: white;
-    padding: 14px 28px;
+    padding: 16px 32px;
     text-decoration: none;
     font-weight: bold;
     border-radius: 4px;
@@ -103,11 +101,85 @@ nav ul li a { color: white; text-decoration: none; font-size: 0.9rem; }
     gap: 10px;
     transition: 0.3s all ease;
     border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 0 4px 15px rgba(52, 168, 224, 0.3);
+    box-shadow: 0 4px 20px rgba(52, 168, 224, 0.4);
 }
 
 .btn-pdf-central:hover {
     background-color: #298cb3;
-    transform: translateY(-2px); /* Pequeño salto al pasar el ratón */
-    box-shadow: 0 6px 20px rgba(52, 168, 224, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(52, 168, 224, 0.6);
+}
+
+/* --- BOTONES DE ACCIÓN --- */
+.hero-actions { display: flex; gap: 15px; justify-content: center; }
+
+.btn-primary, .btn-secondary, .btn-doc {
+    padding: 12px 25px; 
+    border-radius: 4px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-primary { background: var(--azul-s9); color: white; border: 1px solid var(--azul-s9); }
+.btn-primary:hover { background: #298cb3; }
+
+.btn-secondary { border: 1px solid white; color: white; }
+.btn-secondary:hover { background: white; color: black; }
+
+/* --- SECCIONES GENERALES --- */
+.container { padding: 80px 5%; }
+.subtitulo-izq { margin-bottom: 40px; font-size: 2rem; border-left: 4px solid var(--azul-s9); padding-left: 15px; }
+.subtitulo-center { text-align: center; margin-bottom: 40px; font-size: 2rem; }
+
+.grid-servicios {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px;
+}
+
+.tarjeta { 
+    background: var(--gris); 
+    padding: 40px; 
+    border-radius: 8px; 
+    border: 1px solid #222; 
+    transition: 0.3s;
+}
+
+.tarjeta:hover { border-color: var(--azul-s9); transform: translateY(-5px); }
+.icono { font-size: 2.5rem; margin-bottom: 15px; }
+
+/* --- SECCIÓN DOCUMENTACIÓN --- */
+.doc-section { background: #050505; text-align: center; padding: 80px 5%; }
+.descargas-flex { 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    flex-wrap: wrap; 
+    margin-top: 30px; 
+}
+
+.btn-doc { border: 1px solid var(--azul-s9); color: var(--azul-s9); background: transparent; }
+.btn-doc:hover { background: var(--azul-s9); color: white; }
+
+/* --- CONTACTO --- */
+.flex-contacto { display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
+.info-texto { flex: 1; min-width: 300px; }
+.form-s9 { flex: 1; min-width: 300px; background: var(--gris); padding: 30px; border-radius: 8px; }
+.form-s9 input, .form-s9 textarea {
+    width: 100%; padding: 12px; margin-bottom: 15px; background: #0a0a0a; border: 1px solid #333; color: white; border-radius: 4px;
+}
+.form-s9 button { width: 100%; padding: 15px; background: var(--azul-s9); border: none; color: white; font-weight: bold; cursor: pointer; border-radius: 4px; transition: 0.3s; }
+.form-s9 button:hover { background: #298cb3; }
+
+/* --- FOOTER --- */
+footer { padding: 40px 5%; text-align: center; border-top: 1px solid #222; opacity: 0.7; font-size: 0.8rem; }
+
+/* --- MÓVIL --- */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    nav ul { display: none; }
+    .hero-actions { flex-direction: column; width: 100%; }
+    .btn-pdf-central { width: 100%; justify-content: center; }
 }
