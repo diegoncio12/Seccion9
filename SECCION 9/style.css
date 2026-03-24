@@ -17,18 +17,32 @@ nav ul { display: flex; list-style: none; gap: 15px; }
 nav ul li a { color: white; text-decoration: none; font-size: 0.9rem; }
 
 /* Hero con Video */
+/* Centrar el contenido del hero */
 .hero {
-    position: relative; height: 80vh; display: flex; align-items: center;
-    padding: 0 5%; overflow: hidden;
+    /* ... (tus estilos existentes) */
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    text-align: center; /* Centrar el texto */
 }
-#video-fondo {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    min-width: 100%; min-height: 100%; object-fit: cover; z-index: -1; filter: brightness(0.3);
-}
-.hero h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 15px; }
-.hero p { max-width: 500px; color: #ccc; margin-bottom: 25px; }
-.hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
+/* Estilo para el nuevo botón de PDF en el hero */
+.btn-pdf-hero {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--azul-s9);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 30px; /* Espacio antes de los botones de acción */
+    transition: 0.3s;
+}
+
+.btn-pdf-hero:hover {
+    background-color: #298cb3;
+    box-shadow: 0 0 20px rgba(52, 168, 224, 0.3);
+}
 /* Botones */
 .btn-primary, .btn-secondary, .btn-doc {
     padding: 12px 25px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block;
